@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	
+	<persistence-unit name="Example_JPA" transaction-type="RESOURCE_LOCAL">
+
+		<class>q4s.tutorials.jpa.entity.Employee</class>
+		<class>q4s.tutorials.jpa.entity.Module</class>
+		<class>q4s.tutorials.jpa.entity.Priority</class>
+		<class>q4s.tutorials.jpa.entity.Project</class>
+		<class>q4s.tutorials.jpa.entity.ProjectState</class>
+		<class>q4s.tutorials.jpa.entity.Release</class>
+		<class>q4s.tutorials.jpa.entity.Revision</class>
+		<class>q4s.tutorials.jpa.entity.RevisionHist</class>
+		<class>q4s.tutorials.jpa.entity.RevisionHistPK</class>
+		<class>q4s.tutorials.jpa.entity.RevisionState</class>
+		<class>q4s.tutorials.jpa.entity.Skill</class>
+		<class>q4s.tutorials.jpa.entity.Tag</class>
+		<class>q4s.tutorials.jpa.entity.Task</class>
+		<class>q4s.tutorials.jpa.entity.TaskType</class>
+		<class>q4s.tutorials.jpa.entity.TasksHist</class>
+		<class>q4s.tutorials.jpa.entity.TasksHistPK</class>
+
+		<properties>
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:hsqldb:hsql://localhost" />
+			<property name="javax.persistence.jdbc.user" value="sa" />
+			<property name="javax.persistence.jdbc.password" value="" />
+			<property name="javax.persistence.jdbc.driver"
+				value="org.hsqldb.jdbcDriver" />
+		</properties>
+	</persistence-unit>
+</persistence>
