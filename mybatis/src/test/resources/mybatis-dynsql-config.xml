@@ -1,0 +1,29 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="mybatis-config.properties"> <!--ссылка на файл со свойствами(ссылка на СУБД, логин, пароль и тп.) -->
+	</properties>
+
+	<settings><!--в данном блоке можно настроить много параметров. Полный список 
+			параметров http://mybatis.github.io/mybatis-3/configuration.html#settings -->
+		<setting name="logImpl" value="LOG4J" />
+	</settings>
+
+    <environments default="development"><!--в данном блоке настраиваются подключения к БД-->
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.hsqldb.jdbcDriver" />
+				<property name="url" value="jdbc:hsqldb:hsql://localhost" />
+				<property name="username" value="sa" />
+				<property name="password" value="" />
+			</dataSource>
+		</environment>
+    </environments> 
+    
+	<mappers>
+		<mapper
+			class="q4s.tutorials.mybatis.dynsql.mapper.PrioritiesMapper" />
+	</mappers>
+
+</configuration>

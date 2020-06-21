@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- ~ ~ Пример генерации MyBatis с динамическим SQL ~ -->
+<generatorConfiguration>
+
+	<!-- Пример генерации стандартных настроек MyBatis3 -->
+	<context id="standart" targetRuntime="MyBatis3">
+		<!-- Бины будут сделаны сериализуемыми -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+		</plugin>
+
+		<!-- Будет добавлен метод toString() -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin">
+		</plugin>
+
+		<!-- Будут добавлены методы equals() и hashCode() -->
+		<plugin
+			type="org.mybatis.generator.plugins.EqualsHashCodePlugin">
+		</plugin>
+
+		<jdbcConnection
+			connectionURL="jdbc:hsqldb:hsql://localhost"
+			driverClass="org.hsqldb.jdbcDriver" userId="sa" password="" />
+
+		<!-- Настройки генерации бинов -->
+		<javaModelGenerator
+			targetProject="mybatis/src/main/java"
+			targetPackage="q4s.tutorials.mybatis.annot.entity">
+			<property name="constructorBased" value="true" />
+			<property name="rootClass"
+				value="q4s.tutorials.mybatis.BaseEntity" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetProject="mybatis/src/main/java"
+			targetPackage="q4s.tutorials.mybatis.annot.mapper">
+		</sqlMapGenerator>
+
+		<!-- Настройка генерации класса взаимодействия с таблицей -->
+		<javaClientGenerator
+			targetProject="mybatis/src/main/java"
+			targetPackage="q4s.tutorials.mybatis.annot.mapper" type="XMLMAPPER">
+			<property name="rootInterface"
+				value="q4s.tutorials.mybatis.RootInterface" />
+		</javaClientGenerator>
+
+		<table tableName="EMPLOYEES"></table>
+		<table tableName="MODULES"></table>
+		<table tableName="PRIORITIES"></table>
+		<table tableName="PROJECTS"></table>
+		<table tableName="PROJECT_STATES"></table>
+		<table tableName="RELEASES"></table>
+		<table tableName="REVISIONS"></table>
+		<table tableName="REVISION_HIST"></table>
+		<table tableName="REVISION_STATES"></table>
+		<table tableName="SKILLS"></table>
+		<table tableName="TAGS"></table>
+		<table tableName="TASKS">
+			
+		</table>
+		<table tableName="TASKS_HIST"></table>
+		<table tableName="TASK_TAGS"></table>
+		<table tableName="TASK_TYPES"></table>
+
+	</context>
+
+
+	<!-- Пример генерации MyBatis3 с динамическим SQL -->
+	<context id="dynSQL" targetRuntime="MyBatis3DynamicSql">
+		<!-- Бины будут сделаны сериализуемыми -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+		</plugin>
+
+		<!-- Будет добавлен метод toString() -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin">
+		</plugin>
+
+		<!-- Будут добавлены методы equals() и hashCode() -->
+		<plugin
+			type="org.mybatis.generator.plugins.EqualsHashCodePlugin">
+		</plugin>
+
+		<jdbcConnection
+			connectionURL="jdbc:hsqldb:hsql://localhost"
+			driverClass="org.hsqldb.jdbcDriver" userId="sa" password="" />
+
+		<!-- Настройки генерации бинов -->
+		<javaModelGenerator
+			targetProject="mybatis/src/main/java"
+			targetPackage="q4s.tutorials.mybatis.dynsql.entity">
+			<property name="constructorBased" value="true" />
+			<property name="rootClass"
+				value="q4s.tutorials.mybatis.BaseEntity" />
+		</javaModelGenerator>
+
+		<!-- Настройка генерации класса взаимодействия с таблицей -->
+		<javaClientGenerator
+			targetProject="mybatis/src/main/java"
+			targetPackage="q4s.tutorials.mybatis.dynsql.mapper" type="XMLMAPPER">
+			<property name="rootInterface"
+				value="q4s.tutorials.mybatis.RootInterface" />
+		</javaClientGenerator>
+
+		<table tableName="EMPLOYEES"></table>
+		<table tableName="MODULES"></table>
+		<table tableName="PRIORITIES"></table>
+		<table tableName="PROJECTS"></table>
+		<table tableName="PROJECT_STATES"></table>
+		<table tableName="RELEASES"></table>
+		<table tableName="REVISIONS"></table>
+		<table tableName="REVISION_HIST"></table>
+		<table tableName="REVISION_STATES"></table>
+		<table tableName="SKILLS"></table>
+		<table tableName="TAGS"></table>
+		<table tableName="TASKS"></table>
+		<table tableName="TASKS_HIST"></table>
+		<table tableName="TASK_TAGS"></table>
+		<table tableName="TASK_TYPES"></table>
+
+	</context>
+</generatorConfiguration>
