@@ -20,6 +20,8 @@ package q4s.tutorials.jpa.entity;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -34,7 +36,7 @@ import org.junit.Test;
  * @author Q4S
  *
  */
-public class PriorityTest {
+public class SkillsTest {
 
 	private static EntityManagerFactory emFactory;
 	private static EntityManager entityManager;
@@ -72,21 +74,24 @@ public class PriorityTest {
 	}
 
 	@Test
-	public void testPriority() {
-		Priority priority = entityManager.find(Priority.class, 2L);
+	public void testSkill() {
+		Skill skill = entityManager.find(Skill.class, 2L);
 		
-		assertEquals("MAJOR", priority.getCode());
-		assertEquals("Major", priority.getTitle());
+		assertEquals("JUN", skill.getCode());
+		assertEquals("Junior", skill.getTitle());
 	}
 
+	/**
+	 * Тестирование выхода с "Квалификации" на "Сотрудников".
+	 */
 	@Test
-	public void testPriorityChange() {
-		Priority priority = entityManager.find(Priority.class, 2L);
+	public void testSkillEmployees() {
+		Skill skill = entityManager.find(Skill.class, 2L);
+		List<Employee> emps = skill.getEmployees();
 		
-		assertTrue(entityManager.contains(priority));
-		
-		assertEquals("MAJOR", priority.getCode());
-		assertEquals("Major", priority.getTitle());
+		assertEquals(1, emps.size());
+		assertEquals("ppp", emps.get(0).getNickname());
 	}
 
+	
 }

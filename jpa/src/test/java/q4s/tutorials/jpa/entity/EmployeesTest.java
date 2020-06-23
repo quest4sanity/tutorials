@@ -20,6 +20,8 @@ package q4s.tutorials.jpa.entity;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -34,7 +36,7 @@ import org.junit.Test;
  * @author Q4S
  *
  */
-public class PriorityTest {
+public class EmployeesTest {
 
 	private static EntityManagerFactory emFactory;
 	private static EntityManager entityManager;
@@ -72,21 +74,20 @@ public class PriorityTest {
 	}
 
 	@Test
-	public void testPriority() {
-		Priority priority = entityManager.find(Priority.class, 2L);
+	public void testEmployee() {
+		Employee emp = entityManager.find(Employee.class, 2L);
 		
-		assertEquals("MAJOR", priority.getCode());
-		assertEquals("Major", priority.getTitle());
+		assertEquals("ppp", emp.getNickname());
 	}
 
+	/**
+	 * Тестирование выхода с "Сотрудника" на "Квалификацию".
+	 */
 	@Test
-	public void testPriorityChange() {
-		Priority priority = entityManager.find(Priority.class, 2L);
+	public void testEmployeeSkill() {
+		Employee emp = entityManager.find(Employee.class, 2L);
 		
-		assertTrue(entityManager.contains(priority));
-		
-		assertEquals("MAJOR", priority.getCode());
-		assertEquals("Major", priority.getTitle());
+		assertEquals("JUN", emp.getSkill().getCode());
 	}
-
+	
 }
